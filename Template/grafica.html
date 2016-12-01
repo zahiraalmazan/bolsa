@@ -13,8 +13,14 @@
 <div class="container">
 	<div id="section" class="container-fluid">
 	  <h1>Gráficas de Cotización y Porcentaje de Inditex</h1>
-	  <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="http://thingspeak.com/channels/177987/charts/1?dynamic=true"></iframe>
-	  <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="http://thingspeak.com/channels/177987/charts/2?dynamic=true"></iframe>
+	  <br>
+	  <h2>Gráficas datos hoy</h2>
+	  <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="http://thingspeak.com/channels/177987/charts/1?dynamic=true&results=60"></iframe>
+	  <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="http://thingspeak.com/channels/177987/charts/2?dynamic=true&results=60"></iframe>
+	  <br><br>
+	  <h2>Gráficas evolución de los datos</h2>
+	  <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="http://thingspeak.com/channels/177987/charts/1?dynamic=true&results=430"></iframe>
+	  <iframe width="450" height="250" style="border: 1px solid #cccccc;" src="http://thingspeak.com/channels/177987/charts/2?dynamic=true&results=430"></iframe>
 	  <form name="bolsa" id="formulario2" action="bolsa">
 		<button id="btn_grafica" type="submit" class="btn btn-grafica">Volver</button>
 	  </form>
