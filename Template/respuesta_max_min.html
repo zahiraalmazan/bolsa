@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="container">
+	<div id="section" class="container-fluid">
+		<h1>Valor Umbral Postivo</h1>
+		<p>Se muestran aquellos casos donde se ha superado el <b>umbral del porcentaje</b> introducido por el cliente</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Porcentaje</th>
+					<th>Hora</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for n in dict2 %}
+				<tr>
+					<td>{{ dict2[n]['porcentaje'] }}</td>
+					<td>{{ dict2[n]['hora'] }}</td>
+					<td>{{ dict2[n]['fecha'] }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<h1>Valor Umbral Negativo</h1>
+		<p>Se muestran aquellos casos donde se ha superado el <b>umbral negativo del porcentaje</b> introducido por el cliente</p>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Porcentaje</th>
+					<th>Hora</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for n in dict3 %}
+				<tr>
+					<td>{{ dict3[n]['porcentaje'] }}</td>
+					<td>{{ dict3[n]['hora'] }}</td>
+					<td>{{ dict3[n]['fecha'] }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<form name="bolsa" id="formulario5" action="bolsa">
+			<button id="btn_maxmin" type="submit" class="btn btn-maxmin">Volver</button>
+		</form>
+		<br><br><br><br>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="container">
+	<div class="jumbotron">
+		<h1>Bienvenido a Bolsa</h1> 
+	</div>
+	<div id="section" class="container-fluid">
+		<form name="bolsa" id="formulario" action="userpass" method="post">
+			<div class="col-sm-6" style="text-align:center;">
+				<div class="panel panel-primary" style="text-align:center;">
+					<div class="panel-body">
+					<h3> Entrar </h3>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="email" type="text" class="form-control" name="email" placeholder="Email">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input id="password" type="password" class="form-control" name="password" placeholder="Password">
+						</div>
+						<br>
+						<button id="btn_userpass" type="submit" class="btn btn-info">Entrar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

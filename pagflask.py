@@ -38,7 +38,7 @@ def userpass():
 	return;
 #Coger los datos (cotizacion, porcentaje, fecha y hora) de la base de datos de MongoDB
 def calculo_bolsa():
-	bols = bolsaBD.find({}).sort("hora", 1).sort("fecha", -1).limit(20)
+	bols = bolsaBD.find({}).sort([("fecha", 1), ("hora",-1)]).limit(20)
 	dict = {}
 	for bolsa in bols:
 		dict[bolsa['cotizacion']]=bolsa;
@@ -80,7 +80,7 @@ def cotizacion():
 	else:
 		if request.method == 'POST':
 			cotizacion_umbral= request.form['cotizacion'] #Cojo el valor de umbral del usuario
-			cotizacionBD=list(bolsaBD.find({}).sort("fecha",1).limit(1)) #Hacemos una lista con el primer valor de cotizacion que haya en la base de datos
+			cotizacionBD=list(bolsaBD.find({}).sort([("fecha", 1), ("hora",-1)]).limit(1)) #Hacemos una lista con el primer valor de cotizacion que haya en la base de datos
 			cotizaciones=bolsaBD.find({}).sort("fecha",1); #Cogemos todos los valores de la base de datos ordenados por fecha ascendente
 			#print(cotizacionBD[0]['cotizacion'])
 			dict4 ={}
@@ -88,8 +88,8 @@ def cotizacion():
 			#Calculamos los valores techo y suelo con el umbral del usuario sobre el primer valor de cotizacion de la base de datos
 			valor_techo = (1+(float(cotizacion_umbral)))*(float(cotizacionBD[0]['cotizacion'].replace(',','.')))
 			valor_suelo = (1-(float(cotizacion_umbral)))*(float(cotizacionBD[0]['cotizacion'].replace(',','.')))
-			#print "valor_techo = "+str(valor_techo)
-			#print "valor_suelo = " +str(valor_suelo)
+			print "valor_techo = "+str(valor_techo)
+			print "valor_suelo = " +str(valor_suelo)
 			for valores in cotizaciones:
 				if float(valor_suelo) >= float(valores['cotizacion'].replace(',','.')): #Todos los valores que esten por debajo del valor suelo, se ponen en el diccionario
 					dict5[valores['cotizacion']]=valores;

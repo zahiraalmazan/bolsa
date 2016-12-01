@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<div class="container">
+	<div class="jumbotron">
+		<h1>Cotización bursatil de Inditex</h1> 
+	</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+		</div>
+		<div>
+		  <div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+			  <li><a href="#section1">Cotización</a></li>
+			  <li><a href="#section2">Gráficas</a></li>
+			  <li><a href="#section3">Umbral Cotización</a></li>
+			  <li><a href="#section4">Umbral Porcentaje</a></li>
+			  <li><a href="#section5">Valor medio</a></li>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </div>
+	</nav>
+
+	<div id="section1" class="container-fluid">
+		<form name="bolsa" id="formulario5" action="exit">
+			<button id="btn_warning" type="submit" class="btn btn-warning btn-lg">Salir</button>
+		</form>
+		<h1>Cotización de las acciones de Inditex en Bolsa</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Cotización</th>
+					<th>Porcentaje</th>
+					<th>Hora</th>
+					<th>Fecha</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for n in dict %}
+				<tr>
+					<td>{{ dict[n]['cotizacion'] }}</td>
+					<td>{{ dict[n]['porcentaje'] }}</td>
+					<td>{{ dict[n]['hora'] }}</td>
+					<td>{{ dict[n]['fecha'] }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<br><br><br><br>
+	<div id="section2" class="container-fluid">
+	  <h1>Gráficas de Cotización y Porcentaje de Inditex</h1>
+	  <form name="bolsa" id="formulario2" action="grafica" method="post">
+		<button id="btn_grafica" type="submit" class="btn btn-grafica">Consultar</button>
+	  </form>
+	</div>
+	<br><br><br><br>
+	<div id="section3" class="container-fluid">
+		<h1>Consulta a partir de un valor umbral de cotización</h1>
+		<form name="bolsa" id="formulario4" action="cotizacion" method="post">
+			<div class="col-sm-4" style="text-align:center;">
+				<div class="panel panel-primary" style="text-align:center;">
+					<div class="panel-body">
+						<div class="input-group" id="cotizacion">
+							<label for="cotizacion">Umbral cotización:</label>
+							<input type="text" id="cotizacion" name="cotizacion" class="form-control"> 
+						</div>
+						<br>
+						<button id="btn_cotizacion" type="submit" class="btn btn-cotizacion">Enviar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="section4" class="container-fluid">
+		<h1>Consulta a partir de un valor umbral del porcentaje</h1>
+		<form name="bolsa" id="formulario" action="umbral" method="post">
+			<div class="col-sm-4" style="text-align:center;">
+				<div class="panel panel-primary" style="text-align:center;">
+					<div class="panel-body">
+						<div class="input-group" id="umbral">
+							<label for="umbral">Umbral porcentaje:</label>
+							<input type="text" id="umbral" name="umbral" class="form-control"> 
+						</div>
+						<br>
+						<button id="btn_umbral" type="submit" class="btn btn-umbral">Enviar</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<br><br><br>
+	<div id="section5" class="container-fluid">
+		<h1>Consulta el valor medio de las cotizaciones guardadas</h1>
+		<form name="bolsa" id="formulario3" action="valormedio" method="post">
+			<button id="btn_valormedio" type="submit" class="btn btn-valormedio">Consultar</button>
+		</form>
+	</div>
+	<br><br>
+</div>
+</body>
+</html>
+
+
