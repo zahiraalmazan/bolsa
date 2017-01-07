@@ -8,7 +8,7 @@ import ast
 
 #VARIABLES DE USO GENERAL
 app = Flask(__name__, template_folder='Template')
-conexion = MongoClient()
+conexion = MongoClient('mongodb://zahiramongo:jCp47l38lR3w7i4eBCd8wI6LnaSQIedEO7YXeUdJVkkLaJvZ9NwJmbiUaQzWR6OFkKCaZtwF1LU7HEF44mx2pg==@zahiramongo.documents.azure.com:10250/?ssl=true')
 basedatos = conexion.pruebas
 bolsaBD = basedatos.bolsaBD
 users = basedatos.usuarios
